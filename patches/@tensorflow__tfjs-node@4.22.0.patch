@@ -1,0 +1,31 @@
+diff --git a/dist/nodejs_kernel_backend.js b/dist/nodejs_kernel_backend.js
+index 988ea4e668b1c2bb29640fc0184893325629f675..6633c82392b4a496fbb4bd5021d55eabc71948ca 100644
+--- a/dist/nodejs_kernel_backend.js
++++ b/dist/nodejs_kernel_backend.js
+@@ -672,7 +672,7 @@ exports.getTFDType = getTFDType;
+  * Tensors.
+  */
+ function createTensorsTypeOpAttr(attrName, tensorsOrDtype) {
+-    if ((0, util_1.isNullOrUndefined)(tensorsOrDtype)) {
++    if (tensorsOrDtype === null || tensorsOrDtype === undefined) {
+         throw new Error('Invalid input tensors value.');
+     }
+     return {
+@@ -686,7 +686,7 @@ function createTensorsTypeOpAttr(attrName, tensorsOrDtype) {
+ exports.createTensorsTypeOpAttr = createTensorsTypeOpAttr;
+ // TODO(yassogba) remove? who uses this?
+ function createOpAttr(attrName, tensorsOrDtype, value) {
+-    if ((0, util_1.isNullOrUndefined)(tensorsOrDtype)) {
++    if (tensorsOrDtype === null || tensorsOrDtype === undefined) {
+         throw new Error('Invalid input tensors value.');
+     }
+     return { name: attrName, type: nodeBackend().binding.TF_BOOL, value: value };
+@@ -694,7 +694,7 @@ function createOpAttr(attrName, tensorsOrDtype, value) {
+ exports.createOpAttr = createOpAttr;
+ /** Returns the dtype number for a single or list of input Tensors. */
+ function getTFDTypeForInputs(tensors) {
+-    if ((0, util_1.isNullOrUndefined)(tensors)) {
++    if (tensors === null || tensors === undefined) {
+         throw new Error('Invalid input tensors value.');
+     }
+     if ((0, util_1.isArray)(tensors)) {

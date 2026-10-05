@@ -1,0 +1,36 @@
+diff --git a/dist/cjs/index.js b/dist/cjs/index.js
+index 2d3229b225bce992c1ee3ea27ab537ae0179b32c..43e5bcd78b1cf47ea82f8b0541ac3828e0da5f00 100644
+--- a/dist/cjs/index.js
++++ b/dist/cjs/index.js
+@@ -251,7 +251,12 @@ function load(modelOrUrl_1) {
+                 case 1:
+                     modelUrlOrHandler = _b.sent();
+                     nsfwnet = new NSFWJS(modelUrlOrHandler, options);
+-                    return [4, nsfwnet.load()];
++                    return [4, nsfwnet.load().catch(function (error) {
++                        // A failed warm-up must not retain the loaded model or its normalization scalar.
++                        if (nsfwnet.model != null) nsfwnet.model.dispose();
++                        nsfwnet.normalizationOffset.dispose();
++                        throw error;
++                    })];
+                 case 2:
+                     _b.sent();
+                     return [2, nsfwnet];
+diff --git a/dist/esm/index.js b/dist/esm/index.js
+index 29c70940490616de30f68f97170ce2a15ca327b2..679bccf728a93857894a4a086910946d4b773783 100644
+--- a/dist/esm/index.js
++++ b/dist/esm/index.js
+@@ -224,7 +224,12 @@ export function load(modelOrUrl_1) {
+                 case 1:
+                     modelUrlOrHandler = _b.sent();
+                     nsfwnet = new NSFWJS(modelUrlOrHandler, options);
+-                    return [4, nsfwnet.load()];
++                    return [4, nsfwnet.load().catch(function (error) {
++                        // A failed warm-up must not retain the loaded model or its normalization scalar.
++                        if (nsfwnet.model != null) nsfwnet.model.dispose();
++                        nsfwnet.normalizationOffset.dispose();
++                        throw error;
++                    })];
+                 case 2:
+                     _b.sent();
+                     return [2, nsfwnet];

@@ -9,6 +9,14 @@ overrides:
   lodash: 4.17.21
   '@aiscript-dev/aiscript-languageserver': '-'
 
+patchedDependencies:
+  '@tensorflow/tfjs-node@4.22.0':
+    hash: 7c481441117693e9917aa7587d7415e902d5f0c3f834f36384447523686fd6ec
+    path: patches/@tensorflow__tfjs-node@4.22.0.patch
+  nsfwjs@4.2.0:
+    hash: 8b6b6c5c16eb1543d4f6b73005799c7f9acd0ff48da533cd99846eb912cce412
+    path: patches/nsfwjs@4.2.0.patch
+
 importers:
 
   .:
@@ -314,7 +322,7 @@ importers:
         version: 7.0.11
       nsfwjs:
         specifier: 4.2.0
-        version: 4.2.0(@tensorflow/tfjs@4.22.0(encoding@0.1.13)(seedrandom@3.0.5))(buffer@6.0.3)
+        version: 4.2.0(patch_hash=8b6b6c5c16eb1543d4f6b73005799c7f9acd0ff48da533cd99846eb912cce412)(@tensorflow/tfjs@4.22.0(encoding@0.1.13)(seedrandom@3.0.5))(buffer@6.0.3)
       oauth2orize:
         specifier: 1.12.0
         version: 1.12.0
@@ -625,7 +633,7 @@ importers:
         version: 4.22.0(encoding@0.1.13)(seedrandom@3.0.5)
       '@tensorflow/tfjs-node':
         specifier: 4.22.0
-        version: 4.22.0(encoding@0.1.13)(seedrandom@3.0.5)
+        version: 4.22.0(patch_hash=7c481441117693e9917aa7587d7415e902d5f0c3f834f36384447523686fd6ec)(encoding@0.1.13)(seedrandom@3.0.5)
       bufferutil:
         specifier: 4.0.9
         version: 4.0.9
@@ -16224,7 +16232,7 @@ snapshots:
     dependencies:
       '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
 
-  '@tensorflow/tfjs-node@4.22.0(encoding@0.1.13)(seedrandom@3.0.5)':
+  '@tensorflow/tfjs-node@4.22.0(patch_hash=7c481441117693e9917aa7587d7415e902d5f0c3f834f36384447523686fd6ec)(encoding@0.1.13)(seedrandom@3.0.5)':
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.9(encoding@0.1.13)
       '@tensorflow/tfjs': 4.22.0(encoding@0.1.13)(seedrandom@3.0.5)
@@ -21903,7 +21911,7 @@ snapshots:
       set-blocking: 2.0.0
     optional: true
 
-  nsfwjs@4.2.0(@tensorflow/tfjs@4.22.0(encoding@0.1.13)(seedrandom@3.0.5))(buffer@6.0.3):
+  nsfwjs@4.2.0(patch_hash=8b6b6c5c16eb1543d4f6b73005799c7f9acd0ff48da533cd99846eb912cce412)(@tensorflow/tfjs@4.22.0(encoding@0.1.13)(seedrandom@3.0.5))(buffer@6.0.3):
     dependencies:
       '@tensorflow/tfjs': 4.22.0(encoding@0.1.13)(seedrandom@3.0.5)
       buffer: 6.0.3

@@ -93,6 +93,8 @@ jobs:
     - run: pnpm i --frozen-lockfile
     - name: Check pnpm-lock.yaml
       run: git diff --exit-code pnpm-lock.yaml
+    - name: Test NSFW model memory
+      run: TFJS_NATIVE=1 pnpm --filter backend test:nsfw-memory
     - name: Copy Configure
       run: cp .github/cherrypick/test.yml .config
     - name: Build

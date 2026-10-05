@@ -96,6 +96,10 @@
 		"ignoredBuiltDependencies": [
 			"@sentry-internal/node-cpu-profiler",
 			"exifreader"
-		]
+		],
+		"patchedDependencies": {
+			"@tensorflow/tfjs-node@4.22.0": "patches/@tensorflow__tfjs-node@4.22.0.patch",
+			"nsfwjs@4.2.0": "patches/nsfwjs@4.2.0.patch"
+		}
 	}
 }
